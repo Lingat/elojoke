@@ -64,8 +64,13 @@ export default function StatsDialog({ joke }) {
                         <p>Previous Rank: {joke.PreviousRank}</p>
                         <p>Wins: {joke.Wins}</p>
                         <p>Losses: {joke.Losses}</p>
-                        <p>Rounds: {joke.Losses}</p>
-                        <p>Ratio: {(joke.Wins / joke.Losses).toFixed(1)}</p>
+                        <p>Rounds: {joke.Rounds}</p>
+                        <p>
+                            Ratio:{' '}
+                            {isNaN(joke.Wins / joke.Losses)
+                                ? 0
+                                : (joke.Wins / joke.Losses).toFixed(1)}{' '}
+                        </p>
                     </Box>
                 </DialogContent>
                 <DialogActions>

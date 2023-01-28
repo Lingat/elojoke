@@ -66,4 +66,10 @@ td {
     .summaryCell {
         width: 200px;
     }
+    .eloCell {
+        width: 75px;
+    }
+    tr {
+        text-align: center;
+    }
 }
