@@ -72,3 +72,31 @@ export function getRandomInt(min, max) {
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
+
+// Calculate expected score of A in a match against B
+//    :param A: Elo rating for player A
+//    :param B: Elo rating for player B
+export function expected(A, B) {
+	return 1 / (1 + 10 ** ((B - A) / 400));
+}
+
+// Calculate the new Elo rating for a player
+//     :param old: The previous Elo rating
+//     :param exp: The expected score for this match
+//     :param score: The actual score for this match
+//     :param k: The k-factor for Elo (default: 32)
+export function elo(old, exp, score, k = 32) {
+	return old + k * (score - exp);
+}
+
+export function calculateRank(jokes) {
+	let sortedByElo = jokes.sort((a, b) => {
+		return b.ELO - a.ELO;
+	});
+
+	sortedByElo.forEach((joke, n) => {
+		joke.Rank = n + 1;
+	});
+
+	return sortedByElo;
+}

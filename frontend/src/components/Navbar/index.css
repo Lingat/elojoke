@@ -1,3 +1,39 @@
-h1 {
-    text-align: center;
+.navbar {
+    background: black;
+    height: 75px;
+    display: flex;
+    flex-direction: justify;
+}
+
+.navbar div {
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.navbarTitle {
+    align-self: center;
+    flex-grow: 1;
+    padding-left: 25px;
+}
+
+.navbarTitle h1:hover {
+    color: rgb(104, 104, 104);
+    cursor: pointer
+}
+
+.navbarNavigateBtn {
+    width: 100px;
+    justify-self: right;
+    justify-content: center;
+    align-self: flex-end;
+    transition: transform .7s ease-in-out;
+    transform: rotate(0deg);
+}
+
+.navbarNavigateBtn:hover {
+    color: rgb(104, 104, 104);
+    transform: rotate(360deg);
+    transition: transform .7s ease-in-out;
+    cursor: pointer
 }

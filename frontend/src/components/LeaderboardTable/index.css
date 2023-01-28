@@ -1,0 +1,44 @@
+.leaderboardWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+thead {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+thead tr {
+    background: black;
+}
+
+tr {
+    height: 80px;
+    width: 100%;
+    background: #333333;
+    margin: 0
+}
+
+td {
+    padding: 15px;
+    margin: 0
+}
+
+.rankCell {
+    text-align: center;
+    font-weight: bold;
+    font-size: 700;
+    font-weight: 15px;
+}
+
+.leaderboardTitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
