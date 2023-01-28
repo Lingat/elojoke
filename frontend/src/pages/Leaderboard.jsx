@@ -54,10 +54,20 @@ function Leaderboard() {
 
     return (
         jokes.length > 1 && (
-            <div className='leaderboardMain'>
-                <h1 className='leaderboardTitle'> Power Rankings</h1>
-                <LeaderboardTable jokes={jokes} />
-            </div>
+            <>
+                <div className='leaderboardMain'>
+                    <h1 className='leaderboardTitle'> Power Rankings</h1>
+                    <LeaderboardTable jokes={jokes} />
+                </div>
+                <footer className='shamelessPlug'>
+                    <p>
+                        Created by{' '}
+                        <a href='https://pierrelingat.web.app/'>
+                            Pierre Lingat
+                        </a>
+                    </p>
+                </footer>
+            </>
         )
     );
 }

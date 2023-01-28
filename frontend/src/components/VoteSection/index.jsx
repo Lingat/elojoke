@@ -21,7 +21,7 @@ function VoteSection() {
     let createRounds = () => {
         const res = {};
         let i = 0;
-        while (i < jokes.length / 2) {
+        while (i < 10) {
             const a = getRandomInt(0, jokes.length);
             const b = getRandomInt(0, jokes.length);
             if (!(a in res) && !(b in res) && a !== b) {
