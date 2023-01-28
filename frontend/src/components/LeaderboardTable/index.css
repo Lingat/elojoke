@@ -8,6 +8,8 @@ table {
     width: 90%;
     border-collapse: collapse;
     margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 thead {
@@ -23,12 +25,13 @@ tr {
     height: 80px;
     width: 100%;
     background: #333333;
-    margin: 0
+    margin: 0;
+    padding: 40px;
 }
 
 td {
     padding: 15px;
-    margin: 0
+    margin: 0;
 }
 
 .rankCell {
@@ -36,9 +39,31 @@ td {
     font-weight: bold;
     font-size: 700;
     font-weight: 15px;
+    width: 1px;
+}
+
+.eloCell {
+    width: 100px;
 }
 
 .leaderboardTitle {
     text-align: center;
     margin-bottom: 50px;
+}
+
+.summaryCell p:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    table {
+        width: 100%;
+    }
+    .authorCell {
+        display: none;
+    }
+    .summaryCell {
+        width: 200px;
+    }
 }

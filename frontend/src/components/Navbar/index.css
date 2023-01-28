@@ -19,21 +19,37 @@
 
 .navbarTitle h1:hover {
     color: rgb(104, 104, 104);
-    cursor: pointer
+    cursor: pointer;
 }
 
 .navbarNavigateBtn {
-    width: 100px;
+    width: 75px;
     justify-self: right;
     justify-content: center;
     align-self: flex-end;
-    transition: transform .7s ease-in-out;
+    transition: transform 0.7s ease-in-out;
     transform: rotate(0deg);
 }
 
 .navbarNavigateBtn:hover {
     color: rgb(104, 104, 104);
     transform: rotate(360deg);
-    transition: transform .7s ease-in-out;
-    cursor: pointer
+    transition: transform 0.7s ease-in-out;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .navbarTitle h1 {
+        font-size: 20px;
+    }
+    .navbar div {
+        height: 50px;
+        display: flex;
+    }
+    .navbar {
+        background: black;
+        height: 50px;
+        display: flex;
+        flex-direction: justify;
+    }
 }

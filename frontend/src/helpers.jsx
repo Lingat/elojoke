@@ -1,18 +1,18 @@
 // Posts data to url using fetch
 // Returns a promsise
-export function postData(url, data, token = "") {
-	return fetch(url, {
-		method: "post",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: "Bearer " + token,
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		body: JSON.stringify(data),
-	}).then((response) => {
-		// checking if there is an error
-		return response.json();
-	});
+export function postData(url, data, token = '') {
+    return fetch(url, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(data),
+    }).then((response) => {
+        // checking if there is an error
+        return response.json();
+    });
 }
 
 // Fetches data (GET)
@@ -20,14 +20,14 @@ export function postData(url, data, token = "") {
 // Takes in a token to make sure the user is signed in
 // Shows an error modal to the user on failure
 export function getData(url, token) {
-	return fetch(url, {
-		method: "get",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: "Bearer " + token,
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-	});
+    return fetch(url, {
+        method: 'get',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    });
 }
 
 // Fetches data (PUT)
@@ -36,17 +36,17 @@ export function getData(url, token) {
 // Takes in a token to make sure the user is signed in
 // Shows an error modal to the user on failure
 export function updateData(url, data, token) {
-	return fetch(url, {
-		method: "put",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: "Bearer " + token,
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		body: JSON.stringify(data),
-	}).then((response) => {
-		return response.json();
-	});
+    return fetch(url, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(data),
+    }).then((response) => {
+        return response.json();
+    });
 }
 
 // Deletes data (DELETE)
@@ -54,30 +54,30 @@ export function updateData(url, data, token) {
 // Takes in a token to make sure the user is signed in
 // Shows an error modal to the user on failure
 export function deleteData(url, token) {
-	return fetch(url, {
-		method: "delete",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: "Bearer " + token,
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-	}).then((response) => {
-		// checking if there is an error
-		return response.json();
-	});
+    return fetch(url, {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    }).then((response) => {
+        // checking if there is an error
+        return response.json();
+    });
 }
 
 export function getRandomInt(min, max) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
 // Calculate expected score of A in a match against B
 //    :param A: Elo rating for player A
 //    :param B: Elo rating for player B
 export function expected(A, B) {
-	return 1 / (1 + 10 ** ((B - A) / 400));
+    return 1 / (1 + 10 ** ((B - A) / 400));
 }
 
 // Calculate the new Elo rating for a player
@@ -86,17 +86,20 @@ export function expected(A, B) {
 //     :param score: The actual score for this match
 //     :param k: The k-factor for Elo (default: 32)
 export function elo(old, exp, score, k = 32) {
-	return old + k * (score - exp);
+    return old + k * (score - exp);
 }
 
 export function calculateRank(jokes) {
-	let sortedByElo = jokes.sort((a, b) => {
-		return b.ELO - a.ELO;
-	});
+    let sortedByElo = jokes.sort((a, b) => {
+        return b.ELO - a.ELO;
+    });
 
-	sortedByElo.forEach((joke, n) => {
-		joke.Rank = n + 1;
-	});
+    sortedByElo.forEach((joke, n) => {
+        if (joke.PreviousRank === joke.Rank) {
+            joke.PreviousRank = joke.Rank;
+        }
+        joke.Rank = n + 1;
+    });
 
-	return sortedByElo;
+    return sortedByElo;
 }

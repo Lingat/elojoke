@@ -8,12 +8,15 @@
 }
 
 .roundCount {
-    text-align: center
+    text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
     .voteSection {
         flex-direction: column;
         align-items: center;
+    }
+    .roundCount {
+        font-size: 15px;
     }
 }
